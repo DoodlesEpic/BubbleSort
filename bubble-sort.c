@@ -2,8 +2,29 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+void alert(char *message)
+{
+    printf("%s", message);
+    printf("Usage: bubbleSort firstNum secondNum [...] \n");
+}
+
 int main(int argc, char *argv[])
 {
+    // Program entrypoint without arguments
+    if (argc == 1)
+    {
+        alert("This applicattion uses bubble sort to sort an array of numbers \n");
+        printf("\nCode is MIT licensed, source at github.com/DoodlesEpic/Bubble-Sort \n");
+        return 0;
+    }
+
+    // Handle missing arguments in the input
+    if (argc < 3)
+    {
+        alert("Error: Provide at least 2 numbers to sort \n");
+        return 1;
+    }
+
     // Create an array to store the numbers to sort
     const int sizeOfNumbers = argc - 1;
     int numbers[sizeOfNumbers];
